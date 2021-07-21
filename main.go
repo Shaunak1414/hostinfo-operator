@@ -53,12 +53,9 @@ func init() {
 
 func vlogin(ctx context.Context, vc, user, pwd string) (*vim25.Client, error) {
 
-	//
 	// Create a vSphere/vCenter client
-	//
 	//    The govmomi client requires a URL object, u, not just a string representation of the vCenter URL.
-	//
-
+	
 	u, err := soap.ParseURL(vc)
 
 	if u == nil {
