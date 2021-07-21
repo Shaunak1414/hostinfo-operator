@@ -59,13 +59,11 @@ func (r *HostInfoReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 
 	msg := fmt.Sprintf("received reconcile request for %q (namespace: %q)", hi.GetName(), hi.GetNamespace())
 	log.Info(msg)
-
 	//
 	// Create a view manager
 	//
 
 	m := view.NewManager(r.VC)
-
 	//
 	// Create a container view of HostSystem objects
 	//
@@ -94,7 +92,6 @@ func (r *HostInfoReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 		log.Info(msg)
 		return ctrl.Result{}, err
 	}
-
 	//
 	// Print summary for host in HostInfo specification info
 	//
@@ -109,7 +106,6 @@ func (r *HostInfoReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 	//
 	// Update the HostInfo status fields
 	//
-
 	if err := r.Status().Update(ctx, hi); err != nil {
 		log.Error(err, "unable to update HostInfo status")
 		return ctrl.Result{}, err
